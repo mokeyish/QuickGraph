@@ -5,6 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <BaseIntermediateOutputPath>obj\Net47</BaseIntermediateOutputPath>
     <RootNamespace>QuickGraph</RootNamespace>
+    <AssemblyName>QuickGraph</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="obj\**" />

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+  <metadata minClientVersion="4.0">
+    <id>QuickGraphCore</id>
+    <version>1.0.0</version>
+    <authors>mokeyish, pelikhan</authors>
+    <owners>mokeyish, pelikhan</owners>
+	<title>QuickGraphCore</title>
+    <licenseUrl>http://quickgraph.codeplex.com/license</licenseUrl>
+    <iconUrl>https://nuget.org/Content/gallery/img/default-package-icon.svg</iconUrl>
+    <projectUrl>https://github.com/mokeyish/QuickGraph</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>QuickGraph provides generic directed/undirected graph datastructures and algorithms for .Net</description>
+    <releaseNotes>QuickGraphCore add netstandard2.0 and net40 support.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>algorithms graph directed undirected dfs bfs graphviz graphml data structure</tags>
+    <dependencies>
+		<group targetFramework="netstandard2.0" />
+		<group targetFramework="net40" />
+    </dependencies>
+  </metadata>
+  <files>
+   <file src="..\src\QuickGraph\bin\debug\net40\QuickGraph.dll" target="lib\net40"/>
+   <file src="..\src\QuickGraph\bin\debug\netstandard2.0\QuickGraph.dll" target="lib\netstandard2.0"/>
+  </files>
+</package>

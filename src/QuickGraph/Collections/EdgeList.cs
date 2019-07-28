@@ -4,15 +4,11 @@ using System.Text;
 
 namespace QuickGraph.Collections
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class EdgeList<TVertex, TEdge>
         : List<TEdge>
         , IEdgeList<TVertex, TEdge>
-#if !SILVERLIGHT
         , ICloneable
-#endif
         where TEdge : IEdge<TVertex>
     {
         public EdgeList() 
@@ -36,11 +32,9 @@ namespace QuickGraph.Collections
             return this.Clone();
         }
 
-#if !SILVERLIGHT
         object ICloneable.Clone()
         {
             return this.Clone();
         }
-#endif
     }
 }

@@ -9,9 +9,7 @@ using System.Linq;
 
 namespace QuickGraph.Algorithms.ConnectedComponents
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class WeaklyConnectedComponentsAlgorithm<TVertex, TEdge> :
         AlgorithmBase<IVertexListGraph<TVertex,TEdge>>,
         IConnectedComponentAlgorithm<TVertex,TEdge,IVertexListGraph<TVertex,TEdge>>

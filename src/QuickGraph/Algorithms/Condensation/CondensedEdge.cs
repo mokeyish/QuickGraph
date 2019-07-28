@@ -4,9 +4,7 @@ using QuickGraph.Collections;
 
 namespace QuickGraph.Algorithms.Condensation
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class CondensedEdge<TVertex, TEdge, TGraph> : Edge<TGraph>
         where TEdge : IEdge<TVertex>
         where TGraph : IMutableVertexAndEdgeSet<TVertex, TEdge>, new()

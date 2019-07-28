@@ -9,9 +9,7 @@ using System.Linq;
 
 namespace QuickGraph.Algorithms
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class EulerianTrailAlgorithm<TVertex, TEdge> :
         RootedAlgorithmBase<TVertex,IMutableVertexAndEdgeListGraph<TVertex, TEdge>>,
         ITreeBuilderAlgorithm<TVertex,TEdge>

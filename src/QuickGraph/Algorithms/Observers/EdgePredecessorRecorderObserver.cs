@@ -12,9 +12,7 @@ namespace QuickGraph.Algorithms.Observers
     /// <reference-ref
     ///     idref="boost"
     ///     />
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class EdgePredecessorRecorderObserver<TVertex, TEdge> :
         IObserver<IEdgePredecessorRecorderAlgorithm<TVertex, TEdge>>
         where TEdge : IEdge<TVertex>

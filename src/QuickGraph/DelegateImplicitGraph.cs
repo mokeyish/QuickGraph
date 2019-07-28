@@ -12,9 +12,7 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
     /// <typeparam name="TEdge">type of the edges</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public class DelegateImplicitGraph<TVertex, TEdge>
         : IImplicitGraph<TVertex, TEdge>
         where TEdge : IEdge<TVertex>, IEquatable<TEdge>

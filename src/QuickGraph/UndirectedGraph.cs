@@ -10,9 +10,7 @@ namespace QuickGraph
     public delegate bool EdgeEqualityComparer<TVertex, TEdge>(TEdge edge, TVertex source, TVertex target)
         where TEdge : IEdge<TVertex>;
 
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("VertexCount = {VertexCount}, EdgeCount = {EdgeCount}")]
     public class UndirectedGraph<TVertex, TEdge> 
         : IMutableUndirectedGraph<TVertex,TEdge>

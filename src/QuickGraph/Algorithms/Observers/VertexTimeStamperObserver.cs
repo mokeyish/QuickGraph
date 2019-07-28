@@ -12,9 +12,7 @@ namespace QuickGraph.Algorithms.Observers
     /// <reference-ref
     ///     idref="boost"
     ///     />
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class VertexTimeStamperObserver<TVertex, TEdge> :
         IObserver<IVertexTimeStamperAlgorithm<TVertex, TEdge>>
         where TEdge : IEdge<TVertex>

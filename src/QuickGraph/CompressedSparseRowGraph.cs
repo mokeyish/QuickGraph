@@ -12,21 +12,15 @@ namespace QuickGraph
     /// (http://www.cs.utk.edu/~dongarra/etemplates/node373.html)
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("VertexCount = {VertexCount}, EdgeCount = {EdgeCount}")]
     public sealed class CompressedSparseRowGraph<TVertex>
         : IVertexSet<TVertex>
         , IEdgeSet<TVertex, SEquatableEdge<TVertex>>
         , IVertexListGraph<TVertex, SEquatableEdge<TVertex>>
-#if !SILVERLIGHT
         , ICloneable
-#endif
     {
-#if !SILVERLIGHT
         [Serializable]
-#endif
         struct Range
         {
             public readonly int Start;
@@ -241,20 +235,16 @@ namespace QuickGraph
             get { return false; }
         }
 
-#if !SILVERLIGHT
         public CompressedSparseRowGraph<TVertex> Clone()
         {
             var ranges = new Dictionary<TVertex, Range>(this.outEdgeStartRanges);
             var edges = (TVertex[])this.outEdges.Clone();
             return new CompressedSparseRowGraph<TVertex>(ranges, edges);
         }
-#endif
 
-#if !SILVERLIGHT
         object ICloneable.Clone()
         {
             return this.Clone();
         }
-#endif
     }
 }

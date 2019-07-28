@@ -12,15 +12,11 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
     /// <typeparam name="TEdge">type of the edges</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("VertexCount = {VertexCount}, EdgeCount = {EdgeCount}")]
     public sealed class ArrayUndirectedGraph<TVertex, TEdge>
         : IUndirectedGraph<TVertex, TEdge>
-#if !SILVERLIGHT
         , ICloneable
-#endif
         where TEdge : IEdge<TVertex>
     {
         readonly EdgeEqualityComparer<TVertex, TEdge> edgeEqualityComparer;
@@ -175,12 +171,10 @@ namespace QuickGraph
         {
             return this;
         }
-#if !SILVERLIGHT
         object ICloneable.Clone()
         {
             return this;
         }
-#endif
         #endregion
     }
 }

@@ -18,9 +18,7 @@ namespace QuickGraph.Algorithms.ShortestPath
     /// <reference-ref
     ///     idref="lawler01combinatorial"
     ///     />
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class AStarShortestPathAlgorithm<TVertex, TEdge> 
         : ShortestPathAlgorithmBase<TVertex, TEdge, IVertexListGraph<TVertex, TEdge>>
         , IVertexColorizerAlgorithm<TVertex, TEdge>

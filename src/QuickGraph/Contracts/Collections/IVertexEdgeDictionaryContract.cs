@@ -101,7 +101,6 @@ namespace QuickGraph.Collections
             throw new NotImplementedException();
         }
 
-#if!SILVERLIGHT
         object ICloneable.Clone()
         {
             throw new NotImplementedException();
@@ -111,7 +110,6 @@ namespace QuickGraph.Collections
         {
             throw new NotImplementedException();
         }
-#endif
         #endregion
     }
 }

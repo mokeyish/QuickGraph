@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 namespace QuickGraph.Predicates
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public class FilteredImplicitVertexSet<TVertex, TEdge, TGraph> 
         : FilteredGraph<TVertex,TEdge,TGraph>
         , IImplicitVertexSet<TVertex>

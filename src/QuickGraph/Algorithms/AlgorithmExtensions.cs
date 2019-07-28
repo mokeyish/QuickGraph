@@ -36,12 +36,8 @@ namespace QuickGraph.Algorithms
             Contract.Requires(dictionary != null);
             Contract.Ensures(Contract.Result<Func<TKey, TValue>>() != null);
 
-#if!SILVERLIGHT
             var method = dictionary.GetType().GetProperty("Item").GetGetMethod();
             return (Func<TKey, TValue>)Delegate.CreateDelegate(typeof(Func<TKey, TValue>), dictionary, method, true);
-#else
-            return key => dictionary[key];
-#endif
         }
 
         /// <summary>
@@ -54,11 +50,7 @@ namespace QuickGraph.Algorithms
         /// <typeparam name="TVertex">The type of the vertex.</typeparam>
         /// <param name="graph">The graph.</param>
         /// <returns></returns>
-        public static VertexIdentity<TVertex> GetVertexIdentity<TVertex>(
-#if !NET20
-this 
-#endif
-            IVertexSet<TVertex> graph)
+        public static VertexIdentity<TVertex> GetVertexIdentity<TVertex>(this IVertexSet<TVertex> graph)
         {
             Contract.Requires(graph != null);
 
@@ -100,11 +92,7 @@ this
         /// <typeparam name="TEdge">The type of the edge.</typeparam>
         /// <param name="graph">The graph.</param>
         /// <returns></returns>
-        public static EdgeIdentity<TVertex, TEdge> GetEdgeIdentity<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IEdgeSet<TVertex, TEdge> graph)
+        public static EdgeIdentity<TVertex, TEdge> GetEdgeIdentity<TVertex, TEdge>(this IEdgeSet<TVertex, TEdge> graph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(graph != null);
@@ -120,12 +108,8 @@ this
             };
         }
 
-        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeBreadthFirstSearch<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph,
-            TVertex root)
+        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeBreadthFirstSearch<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> visitedGraph,TVertex root)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -153,12 +137,8 @@ this
         /// <param name="visitedGraph">The visited graph.</param>
         /// <param name="root">The root.</param>
         /// <returns></returns>
-        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeDepthFirstSearch<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph,
-            TVertex root)
+        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeDepthFirstSearch<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> visitedGraph, TVertex root)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -178,12 +158,8 @@ this
             };
         }
 
-        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeCyclePoppingRandom<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph,
-            TVertex root)
+        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeCyclePoppingRandom<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> visitedGraph, TVertex root)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -194,13 +170,8 @@ this
             return TreeCyclePoppingRandom(visitedGraph, root, new NormalizedMarkovEdgeChain<TVertex, TEdge>());
         }
 
-        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeCyclePoppingRandom<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph,
-            TVertex root,
-            IMarkovEdgeChain<TVertex, TEdge> edgeChain)
+        public static TryFunc<TVertex, IEnumerable<TEdge>> TreeCyclePoppingRandom<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> visitedGraph, TVertex root, IMarkovEdgeChain<TVertex, TEdge> edgeChain)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -221,14 +192,10 @@ this
         }
 
         #region shortest paths
-        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsDijkstra<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> visitedGraph,
-            Func<TEdge, double> edgeWeights,
-            TVertex source
-            )
+        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsDijkstra<TVertex, TEdge>
+            (this IUndirectedGraph<TVertex, TEdge> visitedGraph,
+             Func<TEdge, double> edgeWeights,
+             TVertex source)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -247,15 +214,11 @@ this
             };
         }
 
-        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsAStar<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
-            Func<TEdge, double> edgeWeights,
-            Func<TVertex, double> costHeuristic,
-            TVertex source
-            )
+        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsAStar<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
+             Func<TEdge, double> edgeWeights,
+             Func<TVertex, double> costHeuristic,
+             TVertex source)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -275,13 +238,10 @@ this
             };
         }
 
-        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsDijkstra<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
-            Func<TEdge, double> edgeWeights,
-            TVertex source
+        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsDijkstra<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
+             Func<TEdge, double> edgeWeights,
+             TVertex source
             )
             where TEdge : IEdge<TVertex>
         {
@@ -301,11 +261,8 @@ this
             };
         }
 
-        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsBellmanFord<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
+        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsBellmanFord<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
             Func<TEdge, double> edgeWeights,
             TVertex source
             )
@@ -327,11 +284,8 @@ this
             };
         }
 
-        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsDag<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
+        public static TryFunc<TVertex, IEnumerable<TEdge>> ShortestPathsDag<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
             Func<TEdge, double> edgeWeights,
             TVertex source
             )
@@ -368,15 +322,13 @@ this
         /// <param name="target"></param>
         /// <param name="pathCount"></param>
         /// <returns></returns>
-        public static IEnumerable<IEnumerable<TEdge>> RankedShortestPathHoffmanPavley<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IBidirectionalGraph<TVertex, TEdge> visitedGraph,
+        public static IEnumerable<IEnumerable<TEdge>> RankedShortestPathHoffmanPavley<TVertex, TEdge>
+            (this IBidirectionalGraph<TVertex, TEdge> visitedGraph,
             Func<TEdge, double> edgeWeights,
             TVertex source,
             TVertex target,
-            int pathCount)
+            int pathCount
+            )
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -401,11 +353,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="visitedGraph"></param>
         /// <returns></returns>
-        public static IEnumerable<TVertex> Sinks<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph) 
+        public static IEnumerable<TVertex> Sinks<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> visitedGraph) 
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -413,8 +362,7 @@ this
         }
 
         [DebuggerHidden]
-        private static IEnumerable<TVertex> SinksIterator<TVertex, TEdge>(
-            IVertexListGraph<TVertex, TEdge> visitedGraph)
+        private static IEnumerable<TVertex> SinksIterator<TVertex, TEdge>(IVertexListGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             foreach (var v in visitedGraph.Vertices)
@@ -430,11 +378,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="visitedGraph"></param>
         /// <returns></returns>
-        public static IEnumerable<TVertex> Roots<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IBidirectionalGraph<TVertex, TEdge> visitedGraph)
+        public static IEnumerable<TVertex> Roots<TVertex, TEdge>
+            (this IBidirectionalGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -442,8 +387,8 @@ this
         }
 
         [DebuggerHidden]
-        private static IEnumerable<TVertex> RootsIterator<TVertex, TEdge>(
-            IBidirectionalGraph<TVertex, TEdge> visitedGraph)
+        private static IEnumerable<TVertex> RootsIterator<TVertex, TEdge>
+            (IBidirectionalGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             foreach (var v in visitedGraph.Vertices)
@@ -458,11 +403,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="visitedGraph"></param>
         /// <returns></returns>
-        public static IEnumerable<TVertex> IsolatedVertices<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IBidirectionalGraph<TVertex, TEdge> visitedGraph)
+        public static IEnumerable<TVertex> IsolatedVertices<TVertex, TEdge>
+            (this IBidirectionalGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -486,11 +428,7 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="visitedGraph"></param>
         /// <returns></returns>
-        public static IEnumerable<TVertex> Roots<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph)
+        public static IEnumerable<TVertex> Roots<TVertex, TEdge>(this IVertexListGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -525,11 +463,7 @@ this
         /// <returns></returns>
         /// <exception cref="NonAcyclicGraphException">the input graph
         /// has a cycle</exception>
-        public static IEnumerable<TVertex> TopologicalSort<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> visitedGraph)
+        public static IEnumerable<TVertex> TopologicalSort<TVertex, TEdge>(this IUndirectedGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -551,13 +485,8 @@ this
         /// <returns></returns>
         /// <exception cref="NonAcyclicGraphException">the input graph
         /// has a cycle</exception>
-        public static void TopologicalSort<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> visitedGraph,
-            IList<TVertex> vertices
-            )
+        public static void TopologicalSort<TVertex, TEdge>
+            (this IUndirectedGraph<TVertex, TEdge> visitedGraph, IList<TVertex> vertices)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -577,11 +506,7 @@ this
         /// <returns></returns>
         /// <exception cref="NonAcyclicGraphException">the input graph
         /// has a cycle</exception>
-        public static IEnumerable<TVertex> TopologicalSort<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph)
+        public static IEnumerable<TVertex> TopologicalSort<TVertex, TEdge>(this IVertexListGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -602,12 +527,8 @@ this
         /// <returns></returns>
         /// <exception cref="NonAcyclicGraphException">the input graph
         /// has a cycle</exception>
-        public static void TopologicalSort<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph,
-            IList<TVertex> vertices)
+        public static void TopologicalSort<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> visitedGraph, IList<TVertex> vertices)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -617,11 +538,8 @@ this
             topo.Compute(vertices);
         }
 
-        public static IEnumerable<TVertex> SourceFirstTopologicalSort<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph)
+        public static IEnumerable<TVertex> SourceFirstTopologicalSort<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -631,12 +549,8 @@ this
             return vertices;
         }
 
-        public static void SourceFirstTopologicalSort<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
-            IList<TVertex> vertices)
+        public static void SourceFirstTopologicalSort<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph, IList<TVertex> vertices)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -654,12 +568,8 @@ this
         /// <param name="g"></param>
         /// <param name="components"></param>
         /// <returns>number of components</returns>
-        public static int ConnectedComponents<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> g,
-            IDictionary<TVertex,int> components)
+        public static int ConnectedComponents<TVertex, TEdge>
+            (this IUndirectedGraph<TVertex, TEdge> g, IDictionary<TVertex,int> components)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(g != null);
@@ -679,11 +589,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="g"></param>
         /// <returns></returns>
-        public static Func<KeyValuePair<int, IDictionary<TVertex, int>>> IncrementalConnectedComponents<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IMutableVertexAndEdgeSet<TVertex, TEdge> g)
+        public static Func<KeyValuePair<int, IDictionary<TVertex, int>>> IncrementalConnectedComponents<TVertex, TEdge>
+            (this IMutableVertexAndEdgeSet<TVertex, TEdge> g)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(g != null);
@@ -702,12 +609,8 @@ this
         /// <param name="g"></param>
         /// <param name="components"></param>
         /// <returns>number of components</returns>
-        public static int WeaklyConnectedComponents<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexListGraph<TVertex, TEdge> g,
-            IDictionary<TVertex, int> components)
+        public static int WeaklyConnectedComponents<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> g, IDictionary<TVertex, int> components)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(g != null);
@@ -726,12 +629,8 @@ this
         /// <param name="g"></param>
         /// <param name="components"></param>
         /// <returns>number of components</returns>
-        public static int StronglyConnectedComponents<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexListGraph<TVertex, TEdge> g,
-            out IDictionary<TVertex, int> components)
+        public static int StronglyConnectedComponents<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> g, out IDictionary<TVertex, int> components)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(g != null);
@@ -752,11 +651,8 @@ this
         /// <param name="vertexCloner"></param>
         /// <param name="edgeCloner"></param>
         /// <param name="clone"></param>
-        public static void Clone<TVertex,TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> g,
+        public static void Clone<TVertex,TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> g,
             Func<TVertex, TVertex> vertexCloner,
             Func<TEdge, TVertex, TVertex, TEdge> edgeCloner,
             IMutableVertexAndEdgeSet<TVertex, TEdge> clone)
@@ -794,12 +690,8 @@ this
         /// <param name="g"></param>
         /// <returns></returns>
         public static IMutableBidirectionalGraph<TGraph,CondensedEdge<TVertex, TEdge,TGraph>> 
-            CondensateStronglyConnected<TVertex, TEdge, TGraph>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex,TEdge> g
-            )
+            CondensateStronglyConnected<TVertex, TEdge, TGraph>
+            (this IVertexAndEdgeListGraph<TVertex,TEdge> g)
             where TEdge : IEdge<TVertex>
             where TGraph : IMutableVertexAndEdgeSet<TVertex,TEdge>, new()
         {
@@ -819,12 +711,7 @@ this
         /// <param name="g"></param>
         /// <returns></returns>
         public static IMutableBidirectionalGraph<TGraph, CondensedEdge<TVertex, TEdge, TGraph>>
-            CondensateWeaklyConnected<TVertex, TEdge, TGraph>(
-#if !NET20
-this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> g
-            )
+            CondensateWeaklyConnected<TVertex, TEdge, TGraph>(this IVertexAndEdgeListGraph<TVertex, TEdge> g)
             where TEdge : IEdge<TVertex>
             where TGraph : IMutableVertexAndEdgeSet<TVertex, TEdge>, new()
         {
@@ -837,11 +724,7 @@ this
         }
 
         public static IMutableBidirectionalGraph<TVertex, MergedEdge<TVertex, TEdge>>
-            CondensateEdges<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IBidirectionalGraph<TVertex, TEdge> visitedGraph,
+            CondensateEdges<TVertex, TEdge>(this IBidirectionalGraph<TVertex, TEdge> visitedGraph,
             VertexPredicate<TVertex> vertexPredicate
             ) where TEdge : IEdge<TVertex>
         {
@@ -865,11 +748,7 @@ this
         /// <param name="g">graph to visit</param>
         /// <returns>colleciton of odd vertices</returns>
         /// <exception cref="ArgumentNullException">g is a null reference</exception>
-        public static List<TVertex> OddVertices<TVertex,TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> g)
+        public static List<TVertex> OddVertices<TVertex,TEdge>(this IVertexAndEdgeListGraph<TVertex, TEdge> g)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(g != null);
@@ -904,11 +783,7 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="g"></param>
         /// <returns></returns>
-        public static bool IsDirectedAcyclicGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IVertexListGraph<TVertex, TEdge> g)
+        public static bool IsDirectedAcyclicGraph<TVertex, TEdge>(this IVertexListGraph<TVertex, TEdge> g)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(g != null);
@@ -975,11 +850,7 @@ this
             return cost;
         }
 
-        public static IDisjointSet<TVertex> ComputeDisjointSet<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> visitedGraph)
+        public static IDisjointSet<TVertex> ComputeDisjointSet<TVertex, TEdge>(this IUndirectedGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -1002,12 +873,8 @@ this
         /// <param name="visitedGraph"></param>
         /// <param name="weights"></param>
         /// <returns></returns>
-        public static IEnumerable<TEdge> MinimumSpanningTreePrim<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> visitedGraph,
-            Func<TEdge, double> weights)
+        public static IEnumerable<TEdge> MinimumSpanningTreePrim<TVertex, TEdge>
+            (this IUndirectedGraph<TVertex, TEdge> visitedGraph, Func<TEdge, double> weights)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -1025,8 +892,7 @@ this
             return edgeRecorder.VertexPredecessors.Values;
         }
 
-        class PrimRelaxer
-            : IDistanceRelaxer
+        class PrimRelaxer : IDistanceRelaxer
         {
             public static readonly IDistanceRelaxer Instance = new PrimRelaxer();
 
@@ -1054,12 +920,8 @@ this
         /// <param name="visitedGraph"></param>
         /// <param name="weights"></param>
         /// <returns></returns>
-        public static IEnumerable<TEdge> MinimumSpanningTreeKruskal<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> visitedGraph,
-            Func<TEdge, double> weights)
+        public static IEnumerable<TEdge> MinimumSpanningTreeKruskal<TVertex, TEdge>
+            (this IUndirectedGraph<TVertex, TEdge> visitedGraph, Func<TEdge, double> weights)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -1090,14 +952,10 @@ this
         /// <param name="root"></param>
         /// <param name="pairs"></param>
         /// <returns></returns>
-        public static TryFunc<SEquatableEdge<TVertex>, TVertex> OfflineLeastCommonAncestorTarjan<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexListGraph<TVertex, TEdge> visitedGraph,
+        public static TryFunc<SEquatableEdge<TVertex>, TVertex> OfflineLeastCommonAncestorTarjan<TVertex, TEdge>
+            (this IVertexListGraph<TVertex, TEdge> visitedGraph,
             TVertex root,
-            IEnumerable<SEquatableEdge<TVertex>> pairs
-            )
+            IEnumerable<SEquatableEdge<TVertex>> pairs)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);
@@ -1131,11 +989,8 @@ this
         /// <param name="flowPredecessors">The flow predecessors.</param>
         /// <param name="edgeFactory">the edge factory</param>
         /// <returns></returns>
-        public static double MaximumFlowEdmondsKarp<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IMutableVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
+        public static double MaximumFlowEdmondsKarp<TVertex, TEdge>
+            (this IMutableVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
             Func<TEdge, double> edgeCapacities,
             TVertex source,
             TVertex sink,
@@ -1149,8 +1004,6 @@ this
             Contract.Requires(source != null);
             Contract.Requires(sink != null);
             Contract.Requires(!source.Equals(sink));
-
-           
 
             // compute maxflow
             var flow = new EdmondsKarpMaximumFlowAlgorithm<TVertex, TEdge>(

@@ -12,9 +12,7 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
     /// <typeparam name="TEdge">type of the edges</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("VertexCount = {VertexCount}, EdgeCount = {EdgeCount}")]
     public class BidirectionAdapterGraph<TVertex, TEdge>
         : IBidirectionalGraph<TVertex, TEdge>

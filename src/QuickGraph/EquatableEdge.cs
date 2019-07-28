@@ -10,9 +10,7 @@ namespace QuickGraph
     /// An equatable edge implementation
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("{Source}->{Target}")]
     public class EquatableEdge<TVertex> 
         : Edge<TVertex>

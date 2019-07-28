@@ -5,9 +5,7 @@ using System.Collections.Generic;
 
 namespace QuickGraph.Algorithms
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public abstract class RootedAlgorithmBase<TVertex,TGraph> 
         : AlgorithmBase<TGraph>
     {

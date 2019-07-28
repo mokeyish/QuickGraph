@@ -10,9 +10,7 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
     /// <typeparam name="TEdge">type of the edges</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [StructLayout(LayoutKind.Auto)]
     [DebuggerDisplay("{Source}<-{Target}")]
     public struct SReversedEdge<TVertex, TEdge> 

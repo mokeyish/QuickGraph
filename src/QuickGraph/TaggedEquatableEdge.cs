@@ -9,9 +9,7 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
     /// <typeparam name="TTag"></typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("{Source}->{Target}:{Tag}")]
     public class TaggedEquatableEdge<TVertex, TTag>
         : EquatableEdge<TVertex>

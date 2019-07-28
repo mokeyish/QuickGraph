@@ -5,9 +5,7 @@ using QuickGraph.Collections;
 
 namespace QuickGraph.Algorithms.Ranking
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class PageRankAlgorithm<TVertex, TEdge> :
         AlgorithmBase<IBidirectionalGraph<TVertex, TEdge>>
         where TEdge : IEdge<TVertex>

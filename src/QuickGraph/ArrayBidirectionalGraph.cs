@@ -13,23 +13,17 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
     /// <typeparam name="TEdge">type of the edges</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("VertexCount = {VertexCount}, EdgeCount = {EdgeCount}")]
     public sealed class ArrayBidirectionalGraph<TVertex, TEdge>
         : IBidirectionalGraph<TVertex, TEdge>
-#if !SILVERLIGHT
         , ICloneable
-#endif
         where TEdge : IEdge<TVertex>
     {
         readonly Dictionary<TVertex, InOutEdges> vertexEdges;
         readonly int edgeCount;
 
-#if !SILVERLIGHT
         [Serializable]
-#endif
         struct InOutEdges
         {
             private readonly TEdge[] _outEdges;
@@ -283,12 +277,10 @@ namespace QuickGraph
             return this;
         }
 
-#if !SILVERLIGHT
         object ICloneable.Clone()
         {
             return this.Clone();
         }
-#endif
         #endregion
 
         #region IBidirectionalGraph<TVertex,TEdge> Members

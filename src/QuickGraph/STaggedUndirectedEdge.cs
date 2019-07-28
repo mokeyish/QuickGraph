@@ -11,9 +11,7 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertex.</typeparam>
     /// <typeparam name="TTag">type of the tag</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay(EdgeExtensions.DebuggerDisplayTaggedUndirectedEdgeFormatString)]
     [StructLayout(LayoutKind.Auto)]
     public struct SUndirectedTaggedEdge<TVertex, TTag>

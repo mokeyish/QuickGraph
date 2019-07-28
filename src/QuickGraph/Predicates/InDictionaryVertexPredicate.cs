@@ -4,9 +4,7 @@ using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Predicates
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class InDictionaryVertexPredicate<TVertex, TValue>
     {
         private readonly IDictionary<TVertex, TValue> dictionary;

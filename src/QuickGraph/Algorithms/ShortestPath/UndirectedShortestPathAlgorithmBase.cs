@@ -8,9 +8,7 @@ using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Algorithms.ShortestPath
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public abstract class UndirectedShortestPathAlgorithmBase<TVertex, TEdge>
         : RootedAlgorithmBase<TVertex, IUndirectedGraph<TVertex,TEdge>>
         , IUndirectedTreeBuilderAlgorithm<TVertex, TEdge>

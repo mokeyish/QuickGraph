@@ -5,9 +5,7 @@ namespace QuickGraph.Algorithms
     /// <summary>
     /// The computation state of a graph algorithm
     /// </summary>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public enum ComputationState
     {
         /// <summary>

@@ -9,9 +9,7 @@ namespace QuickGraph.Algorithms.RandomWalks
     /// <summary>
     /// Wilson-Propp Cycle-Popping Algorithm for Random Tree Generation.
     /// </summary>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class CyclePoppingRandomTreeAlgorithm<TVertex, TEdge> 
         : RootedAlgorithmBase<TVertex,IVertexListGraph<TVertex,TEdge>>
         , IVertexColorizerAlgorithm<TVertex, TEdge>

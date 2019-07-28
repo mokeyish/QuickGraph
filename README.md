@@ -1,6 +1,5 @@
 # QuickGraph
 
-fork from http://quickgraph.codeplex.com/
-just add support .net core2.0
+fork from https://github.com/mokeyish/QuickGraph
+just adding support .net core3.0 .NET Standard 2.1
 
-* You can find it on [nuget](https://www.nuget.org/packages/QuickGraphCore/)

@@ -4,9 +4,7 @@ using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Algorithms.RandomWalks
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public abstract class WeightedMarkovEdgeChainBase<TVertex, TEdge> :
         MarkovEdgeChainBase<TVertex, TEdge>
         where TEdge : IEdge<TVertex>

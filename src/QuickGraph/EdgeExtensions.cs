@@ -25,11 +25,7 @@ namespace QuickGraph
         /// <param name="edge"></param>
         /// <returns></returns>
         [Pure]
-        public static bool IsSelfEdge<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            TEdge edge)
+        public static bool IsSelfEdge<TVertex, TEdge>(this TEdge edge)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edge != null);
@@ -47,11 +43,7 @@ this
         /// <param name="vertex"></param>
         /// <returns></returns>
         [Pure]
-        public static TVertex GetOtherVertex<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            TEdge edge, TVertex vertex)
+        public static TVertex GetOtherVertex<TVertex, TEdge>(this TEdge edge, TVertex vertex)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edge != null);
@@ -74,11 +66,7 @@ this
         /// <param name="vertex"></param>
         /// <returns></returns>
         [Pure]
-        public static bool IsAdjacent<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            TEdge edge, TVertex vertex)
+        public static bool IsAdjacent<TVertex, TEdge>(this TEdge edge, TVertex vertex)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edge != null);
@@ -92,11 +80,7 @@ this
         }
 
         [Pure]
-        public static bool IsPath<TVertex, TEdge>(
-#if !NET20
-this 
-#endif            
-            IEnumerable<TEdge> path)
+        public static bool IsPath<TVertex, TEdge>(this IEnumerable<TEdge> path)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(path != null);
@@ -123,11 +107,7 @@ this
         }
 
         [Pure]
-        public static bool HasCycles<TVertex, TEdge>(
-#if !NET20
-this 
-#endif            
-            IEnumerable<TEdge> path)
+        public static bool HasCycles<TVertex, TEdge>(this IEnumerable<TEdge> path)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(path != null);
@@ -157,11 +137,7 @@ this
         }
 
         [Pure]
-        public static bool IsPathWithoutCycles<TVertex, TEdge>(
-#if !NET20
-this 
-#endif            
-            IEnumerable<TEdge> path)
+        public static bool IsPathWithoutCycles<TVertex, TEdge>(this IEnumerable<TEdge> path)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(path != null);
@@ -204,11 +180,7 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="edge"></param>
         /// <returns></returns>
-        public static SEquatableEdge<TVertex> ToVertexPair<TVertex, TEdge>(
-#if !NET20
-this 
-#endif            
-            TEdge edge)
+        public static SEquatableEdge<TVertex> ToVertexPair<TVertex, TEdge>(this TEdge edge)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edge != null);
@@ -227,11 +199,8 @@ this
         /// <param name="root"></param>
         /// <param name="vertex"></param>
         /// <returns></returns>
-        public static bool IsPredecessor<TVertex, TEdge>(
-#if !NET20
-this 
-#endif            
-            IDictionary<TVertex, TEdge> predecessors, 
+        public static bool IsPredecessor<TVertex, TEdge>
+            (this IDictionary<TVertex, TEdge> predecessors, 
             TVertex root, 
             TVertex vertex)
             where TEdge : IEdge<TVertex>
@@ -270,11 +239,8 @@ this
         /// <param name="v"></param>
         /// <param name="result"></param>
         /// <returns></returns>
-        public static bool TryGetPath<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IDictionary<TVertex, TEdge> predecessors,
+        public static bool TryGetPath<TVertex, TEdge>
+            (this IDictionary<TVertex, TEdge> predecessors,
             TVertex v,
             out IEnumerable<TEdge> result)
             where TEdge : IEdge<TVertex>
@@ -344,13 +310,7 @@ this
         /// <param name="source"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static bool UndirectedVertexEquality<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            TEdge edge,
-            TVertex source,
-            TVertex target)
+        public static bool UndirectedVertexEquality<TVertex, TEdge>(this TEdge edge, TVertex source, TVertex target)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edge != null);
@@ -358,7 +318,7 @@ this
             Contract.Requires(target != null);
 
             return (edge.Source.Equals(source) && edge.Target.Equals(target)) ||
-                (edge.Target.Equals(source) && edge.Source.Equals(target));
+                   (edge.Target.Equals(source) && edge.Source.Equals(target));
         }
 
         /// <summary>
@@ -370,13 +330,7 @@ this
         /// <param name="source"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static bool SortedVertexEquality<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-TEdge edge,
-            TVertex source,
-            TVertex target)
+        public static bool SortedVertexEquality<TVertex, TEdge>(this TEdge edge, TVertex source, TVertex target)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edge != null);

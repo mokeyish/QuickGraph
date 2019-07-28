@@ -11,9 +11,7 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex"></typeparam>
     /// <typeparam name="TEdge"></typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public class DelegateBidirectionalIncidenceGraph<TVertex, TEdge>
         : DelegateIncidenceGraph<TVertex, TEdge>
         , IBidirectionalIncidenceGraph<TVertex, TEdge>

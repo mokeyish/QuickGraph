@@ -7,9 +7,7 @@ using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Algorithms
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class CentralityApproximationAlgorithm<TVertex, TEdge> :
         AlgorithmBase<IVertexListGraph<TVertex,TEdge>>
         where TEdge : IEdge<TVertex>

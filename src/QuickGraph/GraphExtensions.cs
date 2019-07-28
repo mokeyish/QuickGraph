@@ -22,11 +22,8 @@ namespace QuickGraph
         /// <typeparam name="TValue"></typeparam>
         /// <param name="dictionary"></param>
         /// <returns></returns>
-        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToVertexAndEdgeListGraph<TVertex, TEdge, TValue>(
-#if !NET20
-this 
-#endif
-            IDictionary<TVertex, TValue> dictionary)
+        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToVertexAndEdgeListGraph<TVertex, TEdge, TValue>
+            (this IDictionary<TVertex, TValue> dictionary)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
             where TValue : IEnumerable<TEdge>
         {
@@ -45,11 +42,8 @@ this
         /// <param name="dictionary"></param>
         /// <param name="keyValueToOutEdges"></param>
         /// <returns></returns>
-        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToVertexAndEdgeListGraph<TVertex, TEdge, TValue>(
-#if !NET20
-this 
-#endif
-            IDictionary<TVertex, TValue> dictionary,
+        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToVertexAndEdgeListGraph<TVertex, TEdge, TValue>
+            (this IDictionary<TVertex, TValue> dictionary,
             Func<KeyValuePair<TVertex,TValue>, IEnumerable<TEdge>> keyValueToOutEdges
             )
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
@@ -79,11 +73,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="tryGetOutEdges"></param>
         /// <returns></returns>
-        public static DelegateIncidenceGraph<TVertex, TEdge> ToDelegateIncidenceGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            TryFunc<TVertex, IEnumerable<TEdge>> tryGetOutEdges)
+        public static DelegateIncidenceGraph<TVertex, TEdge> ToDelegateIncidenceGraph<TVertex, TEdge>
+            (this TryFunc<TVertex, IEnumerable<TEdge>> tryGetOutEdges)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
         {
             Contract.Requires(tryGetOutEdges != null);
@@ -98,11 +89,8 @@ this
         /// <param name="tryGetOutEdges"></param>
         /// <param name="tryGetInEdges"></param>
         /// <returns></returns>
-        public static DelegateBidirectionalIncidenceGraph<TVertex, TEdge> ToDelegateBidirectionalIncidenceGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            TryFunc<TVertex, IEnumerable<TEdge>> tryGetOutEdges,
+        public static DelegateBidirectionalIncidenceGraph<TVertex, TEdge> ToDelegateBidirectionalIncidenceGraph<TVertex, TEdge>
+            (this TryFunc<TVertex, IEnumerable<TEdge>> tryGetOutEdges,
             TryFunc<TVertex, IEnumerable<TEdge>> tryGetInEdges)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
         {
@@ -119,11 +107,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="getOutEdges"></param>
         /// <returns></returns>
-        public static DelegateIncidenceGraph<TVertex, TEdge> ToDelegateIncidenceGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            Func<TVertex, IEnumerable<TEdge>> getOutEdges)
+        public static DelegateIncidenceGraph<TVertex, TEdge> ToDelegateIncidenceGraph<TVertex, TEdge>
+            (this Func<TVertex, IEnumerable<TEdge>> getOutEdges)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
         {
             Contract.Requires(getOutEdges != null);
@@ -158,11 +143,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="tryGetOutEdges"></param>
         /// <returns></returns>
-        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateVertexAndEdgeListGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IEnumerable<TVertex> vertices,
+        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateVertexAndEdgeListGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
             TryFunc<TVertex, IEnumerable<TEdge>> tryGetOutEdges)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
         {
@@ -185,11 +167,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="getOutEdges"></param>
         /// <returns></returns>
-        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateVertexAndEdgeListGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IEnumerable<TVertex> vertices,
+        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateVertexAndEdgeListGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
             Func<TVertex, IEnumerable<TEdge>> getOutEdges)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
         {
@@ -207,11 +186,8 @@ this
         /// <typeparam name="TValue"></typeparam>
         /// <param name="dictionary"></param>
         /// <returns></returns>
-        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge, TValue>(
-#if !NET20
-this 
-#endif
-            IDictionary<TVertex, TValue> dictionary)
+        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge, TValue>
+            (this IDictionary<TVertex, TValue> dictionary)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
             where TValue : IEnumerable<TEdge>
         {
@@ -230,11 +206,8 @@ this
         /// <param name="dictionary"></param>
         /// <param name="keyValueToOutEdges"></param>
         /// <returns></returns>
-        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge, TValue>(
-#if !NET20
-this 
-#endif
-            IDictionary<TVertex, TValue> dictionary,
+        public static DelegateVertexAndEdgeListGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge, TValue>
+            (this IDictionary<TVertex, TValue> dictionary,
             Func<KeyValuePair<TVertex, TValue>, IEnumerable<TEdge>> keyValueToOutEdges
             )
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
@@ -266,11 +239,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="tryGetAdjacentEdges"></param>
         /// <returns></returns>
-        public static DelegateUndirectedGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IEnumerable<TVertex> vertices,
+        public static DelegateUndirectedGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
             TryFunc<TVertex, IEnumerable<TEdge>> tryGetAdjacentEdges)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
         {
@@ -293,11 +263,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="getAdjacentEdges"></param>
         /// <returns></returns>
-        public static DelegateUndirectedGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IEnumerable<TVertex> vertices,
+        public static DelegateUndirectedGraph<TVertex, TEdge> ToDelegateUndirectedGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
             Func<TVertex, IEnumerable<TEdge>> getAdjacentEdges)
             where TEdge : IEdge<TVertex>, IEquatable<TEdge>
         {
@@ -317,12 +284,7 @@ this
         /// <param name="edges"></param>
         /// <returns></returns>
         public static AdjacencyGraph<TVertex, SEquatableEdge<TVertex>>
-            ToAdjacencyGraph<TVertex>(
-#if !NET20
-this 
-#endif
-            TVertex[][] edges
-            )
+            ToAdjacencyGraph<TVertex>(this TVertex[][] edges)
         {
             Contract.Requires(edges != null);
             Contract.Requires(edges.Length == 2);
@@ -349,12 +311,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public static ArrayAdjacencyGraph<TVertex, TEdge> ToArrayAdjacencyGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> graph
-            )
+        public static ArrayAdjacencyGraph<TVertex, TEdge> ToArrayAdjacencyGraph<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> graph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(graph != null);
@@ -369,12 +327,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public static ArrayBidirectionalGraph<TVertex, TEdge> ToArrayBidirectionalGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IBidirectionalGraph<TVertex, TEdge> graph
-            )
+        public static ArrayBidirectionalGraph<TVertex, TEdge> ToArrayBidirectionalGraph<TVertex, TEdge>
+            (this IBidirectionalGraph<TVertex, TEdge> graph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(graph != null);
@@ -389,12 +343,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public static ArrayUndirectedGraph<TVertex, TEdge> ToArrayUndirectedGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IUndirectedGraph<TVertex, TEdge> graph
-            )
+        public static ArrayUndirectedGraph<TVertex, TEdge> ToArrayUndirectedGraph<TVertex, TEdge>
+            (this IUndirectedGraph<TVertex, TEdge> graph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(graph != null);
@@ -409,11 +359,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public static IBidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> graph)
+        public static IBidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> graph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(graph != null);
@@ -432,11 +379,7 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="edges"></param>
         /// <returns></returns>
-        public static UndirectedGraph<TVertex, TEdge> ToUndirectedGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IEnumerable<TEdge> edges)
+        public static UndirectedGraph<TVertex, TEdge> ToUndirectedGraph<TVertex, TEdge>(this IEnumerable<TEdge> edges)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edges != null);
@@ -453,12 +396,8 @@ this
         /// <param name="edges"></param>
         /// <param name="allowParralelEdges"></param>
         /// <returns></returns>
-        public static UndirectedGraph<TVertex, TEdge> ToUndirectedGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IEnumerable<TEdge> edges,
-            bool allowParralelEdges)
+        public static UndirectedGraph<TVertex, TEdge> ToUndirectedGraph<TVertex, TEdge>
+            (this IEnumerable<TEdge> edges, bool allowParralelEdges)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edges != null);
@@ -477,13 +416,8 @@ this
         /// <param name="edges">The edges.</param>
         /// <param name="allowParallelEdges">if set to <c>true</c>, the graph allows parallel edges.</param>
         /// <returns></returns>
-        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TEdge> edges,
-            bool allowParallelEdges
-            )
+        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>
+            (this IEnumerable<TEdge> edges, bool allowParallelEdges)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edges != null);
@@ -501,12 +435,7 @@ this
         /// <typeparam name="TEdge">The type of the edge.</typeparam>
         /// <param name="edges">The edges.</param>
         /// <returns></returns>
-        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TEdge> edges
-            )
+        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>(this IEnumerable<TEdge> edges)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edges != null);
@@ -523,13 +452,8 @@ this
         /// <param name="edges">The edges.</param>
         /// <param name="allowParallelEdges">if set to <c>true</c>, the graph allows parallel edges.</param>
         /// <returns></returns>
-        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TEdge> edges,
-            bool allowParallelEdges
-            )
+        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>
+            (this IEnumerable<TEdge> edges, bool allowParallelEdges)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edges != null);
@@ -547,12 +471,7 @@ this
         /// <typeparam name="TEdge">The type of the edge.</typeparam>
         /// <param name="edges">The edges.</param>
         /// <returns></returns>
-        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TEdge> edges
-            )
+        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>(this IEnumerable<TEdge> edges)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(edges != null);
@@ -571,11 +490,8 @@ this
         /// <param name="outEdgesFactory">The out edges factory.</param>
         /// <param name="allowParallelEdges">if set to <c>true</c>, the graph allows parallel edges.</param>
         /// <returns></returns>
-        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TVertex> vertices,
+        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
             Func<TVertex, IEnumerable<TEdge>> outEdgesFactory,
             bool allowParallelEdges
             )
@@ -602,13 +518,9 @@ this
         /// <param name="vertices">The vertices.</param>
         /// <param name="outEdgesFactory">The out edges factory.</param>
         /// <returns></returns>
-        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TVertex> vertices,
-            Func<TVertex, IEnumerable<TEdge>> outEdgesFactory
-            )
+        public static AdjacencyGraph<TVertex, TEdge> ToAdjacencyGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
+            Func<TVertex, IEnumerable<TEdge>> outEdgesFactory)
             where TEdge : IEdge<TVertex>
         {
             return ToAdjacencyGraph(vertices, outEdgesFactory, true);
@@ -624,11 +536,8 @@ this
         /// <param name="outEdgesFactory">The out edges factory.</param>
         /// <param name="allowParallelEdges">if set to <c>true</c>, the graph allows parallel edges.</param>
         /// <returns></returns>
-        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TVertex> vertices,
+        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
             Func<TVertex, IEnumerable<TEdge>> outEdgesFactory,
             bool allowParallelEdges
             ) 
@@ -655,13 +564,9 @@ this
         /// <param name="vertices">The vertices.</param>
         /// <param name="outEdgesFactory">The out edges factory.</param>
         /// <returns></returns>
-        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>(
-#if !NET20
-            this 
-#endif
-            IEnumerable<TVertex> vertices,
-            Func<TVertex, IEnumerable<TEdge>> outEdgesFactory
-            )
+        public static BidirectionalGraph<TVertex, TEdge> ToBidirectionalGraph<TVertex, TEdge>
+            (this IEnumerable<TVertex> vertices,
+            Func<TVertex, IEnumerable<TEdge>> outEdgesFactory)
             where TEdge : IEdge<TVertex>
         {
             return ToBidirectionalGraph(vertices, outEdgesFactory, true);
@@ -673,11 +578,8 @@ this
         /// <typeparam name="TVertex">type of the vertices</typeparam>
         /// <param name="vertexPairs"></param>
         /// <returns></returns>
-        public static AdjacencyGraph<TVertex, SEquatableEdge<TVertex>> ToAdjacencyGraph<TVertex>(
-#if !NET20
-this 
-#endif
-            IEnumerable<SEquatableEdge<TVertex>> vertexPairs)
+        public static AdjacencyGraph<TVertex, SEquatableEdge<TVertex>> ToAdjacencyGraph<TVertex>
+            (this IEnumerable<SEquatableEdge<TVertex>> vertexPairs)
         {
             Contract.Requires(vertexPairs != null);
 
@@ -692,11 +594,8 @@ this
         /// <typeparam name="TVertex">type of the vertices</typeparam>
         /// <param name="vertexPairs"></param>
         /// <returns></returns>
-        public static BidirectionalGraph<TVertex, SEquatableEdge<TVertex>> ToBidirectionalGraph<TVertex>(
-#if !NET20
-this 
-#endif
-            IEnumerable<SEquatableEdge<TVertex>> vertexPairs)
+        public static BidirectionalGraph<TVertex, SEquatableEdge<TVertex>> ToBidirectionalGraph<TVertex>
+            (this IEnumerable<SEquatableEdge<TVertex>> vertexPairs)
         {
             Contract.Requires(vertexPairs != null);
 
@@ -711,11 +610,8 @@ this
         /// <typeparam name="TVertex">type of the vertices</typeparam>
         /// <param name="vertexPairs"></param>
         /// <returns></returns>
-        public static UndirectedGraph<TVertex, SEquatableEdge<TVertex>> ToUndirectedGraph<TVertex>(
-#if !NET20
-this 
-#endif
-            IEnumerable<SEquatableEdge<TVertex>> vertexPairs)
+        public static UndirectedGraph<TVertex, SEquatableEdge<TVertex>> ToUndirectedGraph<TVertex>
+            (this  IEnumerable<SEquatableEdge<TVertex>> vertexPairs)
         {
             Contract.Requires(vertexPairs != null);
 
@@ -731,11 +627,8 @@ this
         /// <typeparam name="TEdge">type of the edges</typeparam>
         /// <param name="visitedGraph"></param>
         /// <returns></returns>
-        public static CompressedSparseRowGraph<TVertex> ToCompressedRowGraph<TVertex, TEdge>(
-#if !NET20
-this 
-#endif
-            IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph)
+        public static CompressedSparseRowGraph<TVertex> ToCompressedRowGraph<TVertex, TEdge>
+            (this IVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph)
             where TEdge : IEdge<TVertex>
         {
             Contract.Requires(visitedGraph != null);

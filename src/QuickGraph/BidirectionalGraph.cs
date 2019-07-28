@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-#if !SILVERLIGHT
 using System.Runtime.Serialization;
-#endif
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using QuickGraph.Contracts;
@@ -18,9 +16,7 @@ namespace QuickGraph
     /// </summary>
     /// <typeparam name="TVertex">type of the vertices</typeparam>
     /// <typeparam name="TEdge">type of the edges</typeparam>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("VertexCount = {VertexCount}, EdgeCount = {EdgeCount}")]
     public class BidirectionalGraph<TVertex, TEdge> 
         : IVertexAndEdgeListGraph<TVertex, TEdge>
@@ -31,9 +27,7 @@ namespace QuickGraph
         , IBidirectionalGraph<TVertex,TEdge>
         , IMutableBidirectionalGraph<TVertex,TEdge>
         , IMutableVertexAndEdgeListGraph<TVertex, TEdge>
-#if !SILVERLIGHT
         , ICloneable
-#endif
         where TEdge : IEdge<TVertex>
     {
         private readonly bool isDirected = true;
@@ -652,12 +646,10 @@ namespace QuickGraph
                 );
         }
         
-#if !SILVERLIGHT
         object ICloneable.Clone()
         {
             return this.Clone();
         }
-#endif
         #endregion
     }
 }

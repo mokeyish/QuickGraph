@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net40</TargetFramework>
-    <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFrameworks>netstandard2.1;netcoreapp3.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Algorithms\Search\HeightFirstSearchAlgorithm.cs" />

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-#if !SILVERLIGHT
 using System.Runtime.Serialization;
-#endif
 using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Collections
@@ -15,19 +13,14 @@ namespace QuickGraph.Collections
     [ContractClass(typeof(IVertexEdgeDictionaryContract<,>))]
     public interface IVertexEdgeDictionary<TVertex, TEdge>
         : IDictionary<TVertex, IEdgeList<TVertex, TEdge>>
-#if !SILVERLIGHT
         , ICloneable
         , ISerializable
-#endif
      where TEdge : IEdge<TVertex>
     {
         /// <summary>
         /// Gets a clone of the dictionary. The vertices and edges are not cloned.
         /// </summary>
         /// <returns></returns>
-#if !SILVERLIGHT
-        new 
-#endif
-        IVertexEdgeDictionary<TVertex, TEdge> Clone();
+        new IVertexEdgeDictionary<TVertex, TEdge> Clone();
     }
 }

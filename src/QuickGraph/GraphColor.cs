@@ -5,9 +5,7 @@ namespace QuickGraph
     /// <summary>
     /// Colors used in vertex coloring algorithms
     /// </summary>
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public enum GraphColor : byte
     {
         /// <summary>

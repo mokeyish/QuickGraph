@@ -14,9 +14,7 @@ namespace QuickGraph.Algorithms.Search
     ///     idref="gross98graphtheory"
     ///     chapter="4.2"
     ///     />
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class UndirectedDepthFirstSearchAlgorithm<TVertex, TEdge> :
         RootedAlgorithmBase<TVertex, IUndirectedGraph<TVertex, TEdge>>,
         IDistanceRecorderAlgorithm<TVertex, TEdge>,

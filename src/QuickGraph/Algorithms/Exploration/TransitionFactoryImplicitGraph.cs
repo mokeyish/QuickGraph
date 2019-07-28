@@ -1,5 +1,4 @@
-﻿#if !SILVERLIGHT
-using System;
+﻿using System;
 using System.Collections.Generic;
 using QuickGraph.Predicates;
 using System.Diagnostics.Contracts;
@@ -116,4 +115,3 @@ namespace QuickGraph.Algorithms.Exploration
 
     }
 }
-#endif

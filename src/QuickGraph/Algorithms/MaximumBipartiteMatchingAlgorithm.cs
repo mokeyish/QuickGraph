@@ -48,9 +48,6 @@ namespace QuickGraph.Algorithms
                 if (cancelManager.IsCancelling)
                     return;
 
-//#if !SILVERLIGHT
-//                this.VisitedGraph.OpenAsDGML("before.dgml");
-//#endif
 
                 //augmenting graph
                 augmentor = new BipartiteToMaximumFlowGraphAugmentorAlgorithm<TVertex, TEdge>(
@@ -65,9 +62,6 @@ namespace QuickGraph.Algorithms
                 if (cancelManager.IsCancelling)
                     return;
 
-//#if !SILVERLIGHT
-//                this.VisitedGraph.OpenAsDGML("afteraugment.dgml");
-//#endif
                 //adding reverse edges
                 reverser = new ReversedEdgeAugmentorAlgorithm<TVertex, TEdge>(
                     this,
@@ -78,9 +72,6 @@ namespace QuickGraph.Algorithms
                 if (cancelManager.IsCancelling)
                     return;
 
-//#if !SILVERLIGHT
-//                this.VisitedGraph.OpenAsDGML("afterreversal.dgml");
-//#endif
 
                 // compute maxflow
                 var flow = new EdmondsKarpMaximumFlowAlgorithm<TVertex, TEdge>(

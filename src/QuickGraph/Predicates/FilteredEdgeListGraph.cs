@@ -5,9 +5,7 @@ using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Predicates
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     public sealed class FilteredEdgeListGraph<TVertex, TEdge, TGraph>
         : FilteredImplicitVertexSet<TVertex, TEdge, TGraph>
         , IEdgeListGraph<TVertex, TEdge>

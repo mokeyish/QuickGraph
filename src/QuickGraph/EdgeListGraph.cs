@@ -6,16 +6,12 @@ using QuickGraph.Collections;
 
 namespace QuickGraph
 {
-#if !SILVERLIGHT
     [Serializable]
-#endif
     [DebuggerDisplay("EdgeCount = {EdgeCount}")]
     public class EdgeListGraph<TVertex, TEdge>
         : IEdgeListGraph<TVertex,TEdge>
         , IMutableEdgeListGraph<TVertex,TEdge>
-#if !SILVERLIGHT
         , ICloneable
-#endif
         where TEdge : IEdge<TVertex>
     {
         private readonly bool isDirected = true;
@@ -187,12 +183,10 @@ namespace QuickGraph
                 );
         }
 
-#if !SILVERLIGHT
         object ICloneable.Clone()
         {
             return this.Clone();
         }
-#endif
         #endregion
 
         #region IVertexSet<TVertex> Members

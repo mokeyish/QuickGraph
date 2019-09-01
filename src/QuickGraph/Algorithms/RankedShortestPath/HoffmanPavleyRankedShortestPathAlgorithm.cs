@@ -340,7 +340,7 @@ namespace QuickGraph.Algorithms.RankedShortestPath
 
             public override string ToString()
             {
-                return String.Format("{0} at {1} {2}", this.Weight, this.DeviationEdge);
+                return String.Format("{0} at {1}", this.Weight, this.DeviationEdge);
             }
         }
     }

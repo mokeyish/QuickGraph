@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.89
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickGraph", "QuickGraph\QuickGraph.csproj", "{14156EF3-3119-436C-A590-5499C8EA7CE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A3D8E58-90CB-4767-ADB4-BDDFE86C287B}"
+	ProjectSection(SolutionItems) = preProject
+		NuGetLogo32x32.png = NuGetLogo32x32.png
+		NuGetLogo50x50.png = NuGetLogo50x50.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{617A3844-7708-452D-AE31-D93C6186C27B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickGraph_Tests_01", "Tests\QuickGraph_Tests_01\QuickGraph_Tests_01.csproj", "{DE8C1154-D1B6-44D9-9F6D-2DA75E8EA834}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +25,17 @@ Global
 		{14156EF3-3119-436C-A590-5499C8EA7CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14156EF3-3119-436C-A590-5499C8EA7CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14156EF3-3119-436C-A590-5499C8EA7CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8C1154-D1B6-44D9-9F6D-2DA75E8EA834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8C1154-D1B6-44D9-9F6D-2DA75E8EA834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8C1154-D1B6-44D9-9F6D-2DA75E8EA834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8C1154-D1B6-44D9-9F6D-2DA75E8EA834}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{14156EF3-3119-436C-A590-5499C8EA7CE2} = {1A3D8E58-90CB-4767-ADB4-BDDFE86C287B}
+		{DE8C1154-D1B6-44D9-9F6D-2DA75E8EA834} = {617A3844-7708-452D-AE31-D93C6186C27B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3DF0295-12D1-4CA8-9E52-AF9646E56126}
